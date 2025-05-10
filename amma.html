@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Mother's Day Surprise</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            text-align: center;
+            overflow: hidden;
+            height: 100vh;
+            background: linear-gradient(270deg, #ffdde1, #fad0c4, #fbc2eb, #a6c1ee, #ffd1ff);
+            background-size: 1000% 1000%;
+            animation: rainbowBackground 6s ease infinite;
+            position: relative;
+            color: #333;
+        }
+
+        @keyframes rainbowBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .page {
+            display: none;
+            height: 100%;
+            width: 100%;
+            padding: 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .active {
+            display: flex;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #e91e63;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        #countdown {
+            font-size: 5em;
+            font-weight: bold;
+            margin: 30px 0;
+            color: #e91e63;
+        }
+
+        button {
+            padding: 14px 30px;
+            font-size: 1em;
+            border: none;
+            border-radius: 30px;
+            background-color: #e91e63;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s ease;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #d4145a;
+        }
+
+        .image-container {
+             width: 90%; /* Adjust as needed */
+            max-width: 800px; /* Optional: set a maximum width */
+            height: 80vh; /* Adjust as needed for vertical fit */
+            margin: 20px auto; /* Center horizontally */
+            display: flex; /* Enable flexbox for centering content */
+            justify-content: center; /* Center content horizontally */
+            align-items: center; /* Center content vertically */
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            max-width: 100%; /* Ensure image doesn't exceed container width */
+            max-height: 100%; /* Ensure image doesn't exceed container height */
+            object-fit: contain; /* Maintain aspect ratio, fit within bounds */
+        }
+
+        .back-button {
+            margin-top: 30px;
+            background-color: #f06292;
+        }
+
+        .back-button:hover {
+            background-color: #ec407a;
+        }
+
+        /* Styles for the new "Happy Mother's Day" page */
+        #page4 {
+            background-color: #f8f8f8; /* Light background */
+            color: #e91e63; /* Pink text */
+            font-size: 3em;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden; /* To contain the balloons */
+        }
+
+        .balloon {
+            width: 80px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #fdd835; /* Yellow */
+            position: absolute;
+            bottom: -120px;
+            animation: floatUp 4s linear infinite, sway 2s ease-in-out infinite alternate;
+        }
+
+        .balloon:nth-child(1) {
+            left: 10%;
+            background-color: #ef5350; /* Red */
+            animation-delay: 0.5s;
+        }
+
+        .balloon:nth-child(2) {
+            left: 30%;
+            background-color: #4caf50; /* Green */
+            animation-delay: 1s;
+        }
+
+        .balloon:nth-child(3) {
+            left: 50%;
+            background-color: #2196f3; /* Blue */
+            animation-delay: 1.5s;
+        }
+
+        .balloon:nth-child(4) {
+            left: 70%;
+            background-color: #9c27b0; /* Purple */
+            animation-delay: 2s;
+        }
+
+        .balloon:nth-child(5) {
+            left: 90%;
+            background-color: #ff9800; /* Orange */
+            animation-delay: 2.5s;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-800px); opacity: 0; }
+        }
+
+        @keyframes sway {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(20px); }
+        }
+
+        #page4 h1 {
+            font-size: 4em;
+            text-shadow: 2px 2px 4px #aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="page1" class="page active">
+        <h1>A Little Surprise is Brewing...</h1>
+        <div id="countdown">5</div>
+    </div>
+
+    <div id="page2" class="page">
+        <h1>Happy Mother's Day, Mom! 💖</h1>
+        <p>To the most amazing mother in the world,</p>
+        <p>Thank you for your endless love, support, and care.</p>
+        <p>Today, it's all about celebrating YOU!</p>
+        <button onclick="goToPage3()">Click for a Special Surprise 🎁</button>
+    </div>
+
+    <div id="page3" class="page">
+        <h1>Here's a Special Gift Just for You! 💝</h1>
+        <div class="image-container">
+            <img src="poem.jpeg" alt="Special Mother's Day Gift" />
+        </div>
+        <button class="back-button" onclick="goToPage4()">Back to Message 💕</button>
+    </div>
+
+    <div id="page4" class="page">
+        <h1>HAPPY MOTHER'S DAY MAA!</h1>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+    </div>
+
+    <script>
+        let countdownNum = 5;
+        const countdownEl = document.getElementById("countdown");
+        const page1 = document.getElementById("page1");
+        const page2 = document.getElementById("page2");
+        const page3 = document.getElementById("page3");
+        const page4 = document.getElementById("page4");
+
+        const interval = setInterval(() => {
+            countdownNum--;
+            countdownEl.textContent = countdownNum;
+            if (countdownNum === 0) {
+                clearInterval(interval);
+                countdownEl.textContent = "Surprise just for you, Mom!";
+                setTimeout(() => {
+                    page1.classList.remove("active");
+                    page2.classList.add("active");
+                }, 2000);
+            }
+        }, 1000);
+
+        function goToPage2() {
+            page3.classList.remove("active");
+            page2.classList.add("active");
+        }
+
+        function goToPage3() {
+            page2.classList.remove("active");
+            page3.classList.add("active");
+        }
+
+        function goToPage4() {
+            page3.classList.remove("active");
+            page4.classList.add("active");
+        }
+
+        window.addEventListener('beforeunload', (event) => {
+            event.preventDefault();
+            event.returnValue = 'Happy Mother\'s Day!';
+        });
+    </script>
+
+</body>
+</html>
